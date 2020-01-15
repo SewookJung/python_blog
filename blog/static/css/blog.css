@@ -16,6 +16,7 @@ h1 a {
 
 .header .header__title {
   margin: 0px 0px 0px 0px;
+  text-transform: uppercase;
 }
 
 .header__title a:hover {
@@ -26,7 +27,8 @@ h1 a {
   padding: 0px 10px;
 }
 
-.post .post__title a:hover {
+.post .post__content {
+  margin-bottom: 30px;
 }
 
 span {
