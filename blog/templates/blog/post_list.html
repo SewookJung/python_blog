@@ -1,34 +1,11 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="{% static 'css/blog.css' %}" />
-  </head>
-  <body>
-    <header class="header page-header text-center ">
-      <h1 class="header__title">
-        <a href="/" class="text-decoration-none">Sewook Blog</a>
-      </h1>
-    </header>
-
-    {% for post in posts %}
-    <main class="post">
-      <h2 class="post__title">
-        <a href="/" class="text-decoration-none">{{post.title}}</a>
-      </h2>
-      <p class="post__published">Publish Date: {{post.published_date}}</p>
-      <p class="post__content">{{post.text}}</p>
-    </main>
-    {% endfor %}
-  </body>
-</html>
+{% extends 'blog/base.html' %} {% block content %} {% for post in posts %}
+<main class="post">
+  <h2 class="post__title">
+    <a href="{% url 'post_detail' pk=post.pk %}" class="text-decoration-none"
+      >{{post.title}}</a
+    >
+  </h2>
+  <p class="post__published">Publish Date: {{post.published_date}}</p>
+  <p class="post__content">{{post.text}}</p>
+</main>
+{% endfor %} {% endblock %}
